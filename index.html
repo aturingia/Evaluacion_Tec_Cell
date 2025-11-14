@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Evaluación Técnica Completa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 Sistema de Evaluación Técnica Completa</h1>
+            <p>Ingrese los valores de las variables para evaluar su estado</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="input-card">
+                    <h3>📊 Ingreso de Valores</h3>
+                    
+                    <div class="form-grid">
+                        <!-- Sección 1: Variables de Voltaje -->
+                        <div class="form-section">
+                            <h4>⚡ Variables de Voltaje</h4>
+                            
+                            <div class="form-group">
+                                <label for="bateria">Batería (V):</label>
+                                <input type="number" id="bateria" step="0.01" min="0" max="10" placeholder="Ej: 3.7">
+                                <small>≥ 3.7V = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pinCarga">Pin de Carga (V):</label>
+                                <input type="number" id="pinCarga" step="0.01" min="0" max="10" placeholder="Ej: 5.0">
+                                <small>≥ 5V = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subplacaCarga">Subplaca de Carga (V):</label>
+                                <input type="number" id="subplacaCarga" step="0.01" min="0" max="10" placeholder="Ej: 5.0">
+                                <small>≥ 5V = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="flexCarga">Flex de Carga (V):</label>
+                                <input type="number" id="flexCarga" step="0.01" min="0" max="10" placeholder="Ej: 5.0">
+                                <small>≥ 5V = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="circuitoCarga">Circuito de Carga (V):</label>
+                                <input type="number" id="circuitoCarga" step="0.01" min="0" max="10" placeholder="Ej: 4.3">
+                                <small>≥ 4.3V = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pulsoEncendido">Pulso de Encendido (V):</label>
+                                <input type="number" id="pulsoEncendido" step="0.01" min="0" max="10" placeholder="Ej: 3.7">
+                                <small>≥ 3.7V = Bueno</small>
+                            </div>
+                        </div>
+
+                        <!-- Sección 2: Variables de Resistencia -->
+                        <div class="form-section">
+                            <h4>🔌 Variables de Resistencia</h4>
+                            
+                            <div class="form-group">
+                                <label for="parlantes">Parlantes (Ω):</label>
+                                <input type="number" id="parlantes" step="0.1" min="0" max="100" placeholder="Ej: 15.5">
+                                <small>5-32Ω = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="vibrador">Vibrador (Ω):</label>
+                                <input type="number" id="vibrador" step="0.1" min="0" max="100" placeholder="Ej: 25.0">
+                                <small>12-45Ω = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="microfonos">Micrófonos (Ω):</label>
+                                <input type="number" id="microfonos" step="1" min="0" max="3000" placeholder="Ej: 1000">
+                                <small>500-1500Ω = Bueno</small>
+                            </div>
+                        </div>
+
+                        <!-- Sección 3: Variables de Consumo -->
+                        <div class="form-section">
+                            <h4>🔋 Variables de Consumo</h4>
+                            
+                            <div class="form-group">
+                                <label for="consumoOff">Consumo en OFF (A):</label>
+                                <input type="number" id="consumoOff" step="0.001" min="0" max="1" placeholder="Ej: 0.000">
+                                <small>== 0.000A = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="consumoOn">Consumo en ON (A):</label>
+                                <input type="number" id="consumoOn" step="0.001" min="0" max="1" placeholder="Ej: 0.200">
+                                <small>== 0.200A = Bueno</small>
+                            </div>
+                        </div>
+
+                        <!-- Sección 4: Variables de Botones -->
+                        <div class="form-section">
+                            <h4>🔘 Variables de Botones</h4>
+                            
+                            <div class="form-group">
+                                <label for="botonEncendido">Botón Encendido:</label>
+                                <select id="botonEncendido">
+                                    <option value="">Seleccione...</option>
+                                    <option value="bzr">BZR</option>
+                                    <option value="falla">FALLA</option>
+                                    <option value="no-aplica">No Aplica</option>
+                                </select>
+                                <small>== BZR = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="botonVolumenMas">Botón Volumen +:</label>
+                                <select id="botonVolumenMas">
+                                    <option value="">Seleccione...</option>
+                                    <option value="bzr">BZR</option>
+                                    <option value="falla">FALLA</option>
+                                    <option value="no-aplica">No Aplica</option>
+                                </select>
+                                <small>== BZR = Bueno</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="botonVolumenMenos">Botón Volumen -:</label>
+                                <select id="botonVolumenMenos">
+                                    <option value="">Seleccione...</option>
+                                    <option value="bzr">BZR</option>
+                                    <option value="falla">FALLA</option>
+                                    <option value="no-aplica">No Aplica</option>
+                                </select>
+                                <small>== BZR = Bueno</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button onclick="evaluarTodos()" class="btn-primary">
+                            🔍 Evaluar Todos los Componentes
+                        </button>
+                        <button onclick="limpiarFormulario()" class="btn-warning">
+                            🧹 Limpiar Formulario
+                        </button>
+                    </div>
+                </div>
+
+                <div id="resultCard" class="result-card hidden">
+                    <h3>📋 Resultados de la Evaluación</h3>
+                    <div class="results-grid" id="resultsContainer">
+                        <!-- Los resultados se insertarán aquí dinámicamente -->
+                    </div>
+                    <div class="resumen" id="resumenGeneral">
+                        <!-- Resumen general -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions-card">
+                <button onclick="exportarCSV()" id="exportBtn" class="btn-secondary" disabled>
+                    📊 Exportar Historial a CSV
+                </button>
+                <button onclick="limpiarHistorial()" id="clearBtn" class="btn-danger" disabled>
+                    🗑️ Limpiar Historial
+                </button>
+            </div>
+
+            <div class="history-card">
+                <h3>📈 Historial de Evaluaciones</h3>
+                <div class="table-container">
+                    <table id="historyTable">
+                        <thead>
+                            <tr>
+                                <th>Fecha/Hora</th>
+                                <th>Batería</th>
+                                <th>Pin Carga</th>
+                                <th>Subplaca</th>
+                                <th>Flex Carga</th>
+                                <th>Circuito</th>
+                                <th>Pulso</th>
+                                <th>Parlantes</th>
+                                <th>Vibrador</th>
+                                <th>Micrófonos</th>
+                                <th>Consumo OFF</th>
+                                <th>Consumo ON</th>
+                                <th>Btn Enc</th>
+                                <th>Btn Vol+</th>
+                                <th>Btn Vol-</th>
+                                <th>Estado General</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyBody">
+                            <!-- Los registros se insertarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                    <div id="emptyHistory" class="empty-state">
+                        No hay evaluaciones registradas. Ingrese valores para comenzar.
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Sistema de evaluación técnica completa - Especificaciones técnicas del dispositivo</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
