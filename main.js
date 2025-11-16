@@ -61,7 +61,7 @@ const especificaciones = {
         min: 500, 
         max: 1500, 
         unidad: 'Ω',
-        criterio: '500-1500Ω = Bueno'
+        criterio: '500-2000Ω = Bueno'
     },
     
     // Variables de Consumo
