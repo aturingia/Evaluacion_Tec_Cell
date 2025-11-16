@@ -59,7 +59,7 @@ const especificaciones = {
     microfonos: { 
         tipo: 'rango', 
         min: 500, 
-        max: 1500, 
+        max: 2000, 
         unidad: 'Ω',
         criterio: '500-2000Ω = Bueno'
     },
