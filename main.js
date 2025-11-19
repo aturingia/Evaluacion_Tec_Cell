@@ -49,6 +49,13 @@ const especificaciones = {
         unidad: 'Ω',
         criterio: '5-32Ω = Bueno'
     },
+    auricular: { 
+        tipo: 'rango', 
+        min: 5.0, 
+        max: 32.0, 
+        unidad: 'Ω',
+        criterio: '5-32Ω = Bueno'
+    },
     vibrador: { 
         tipo: 'rango', 
         min: 12.0, 
@@ -96,7 +103,13 @@ const especificaciones = {
         valor: 'bzr', 
         unidad: '',
         criterio: '== BZR = Bueno'
-    }
+    },
+    botonAsistente: { 
+        tipo: 'texto', 
+        valor: 'bzr', 
+        unidad: '',
+        criterio: '== BZR = Bueno'
+    },
 };
 
 // Función principal para evaluar todos los componentes
@@ -271,13 +284,15 @@ function obtenerNombreVariable(variable) {
         circuitoCarga: 'Circuito de Carga',
         pulsoEncendido: 'Pulso de Encendido',
         parlantes: 'Parlantes',
+        auricular: 'Auricular',
         vibrador: 'Vibrador',
         microfonos: 'Micrófonos',
         consumoOff: 'Consumo OFF',
         consumoOn: 'Consumo ON',
         botonEncendido: 'Botón Encendido',
         botonVolumenMas: 'Botón Volumen +',
-        botonVolumenMenos: 'Botón Volumen -'
+        botonVolumenMenos: 'Botón Volumen -',
+        botonAsistente: 'Botón Asistente'
     };
     return nombres[variable] || variable;
 }
