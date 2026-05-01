@@ -14,9 +14,31 @@
         </header>
 
         <main>
+            <!-- Nueva sección de información del dispositivo -->
+            <div class="device-info-card">
+                <h3>📱 Información del Dispositivo</h3>
+                <div class="device-grid">
+                    <div class="form-group">
+                        <label for="marca">Marca:</label>
+                        <input type="text" id="marca" placeholder="Ej: Samsung, iPhone, Xiaomi, Motorola">
+                        <small>Ingrese la marca del dispositivo</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="modelo">Modelo:</label>
+                        <input type="text" id="modelo" placeholder="Ej: Galaxy S21, iPhone 12, Redmi Note 10">
+                        <small>Ingrese el modelo específico</small>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="sintomas">Síntomas del Dispositivo:</label>
+                        <textarea id="sintomas" rows="3" placeholder="Ej: No enciende, Batería se descarga rápido, Pantalla no responde, No carga, Sobrecalentamiento, etc."></textarea>
+                        <small>Describa detalladamente los síntomas que presenta el dispositivo</small>
+                    </div>
+                </div>
+            </div>
+
             <div class="input-section">
                 <div class="input-card">
-                    <h3>📊 Ingreso de Valores</h3>
+                    <h3>📊 Ingreso de Valores Técnicos</h3>
                     
                     <div class="form-grid">
                         <!-- Sección 1: Variables de Voltaje -->
@@ -69,11 +91,6 @@
                                 <input type="number" id="parlantes" step="0.1" min="0" max="100" placeholder="Ej: 15.5">
                                 <small>5-32Ω = Bueno</small>
                             </div>
-                            <div class="form-group">
-                                <label for="auricular">Auricular (Ω):</label>
-                                <input type="number" id="auricular" step="0.1" min="0" max="100" placeholder="Ej: 15.5">
-                                <small>5-32Ω = Bueno</small>
-                            </div>
 
                             <div class="form-group">
                                 <label for="vibrador">Vibrador (Ω):</label>
@@ -84,7 +101,7 @@
                             <div class="form-group">
                                 <label for="microfonos">Micrófonos (Ω):</label>
                                 <input type="number" id="microfonos" step="1" min="0" max="3000" placeholder="Ej: 1000">
-                                <small>500-2000Ω = Bueno</small>
+                                <small>500-1500Ω = Bueno</small>
                             </div>
                         </div>
 
@@ -141,16 +158,6 @@
                                 </select>
                                 <small>== BZR = Bueno</small>
                             </div>
-                            <div class="form-group">
-                                <label for="botonAsistente">Botón Asistente:</label>
-                                <select id="botonAsistente">
-                                    <option value="">Seleccione...</option>
-                                    <option value="bzr">BZR</option>
-                                    <option value="falla">FALLA</option>
-                                    <option value="no-aplica">No Aplica</option>
-                                </select>
-                                <small>== BZR = Bueno</small>
-                            </div>
                         </div>
                     </div>
 
@@ -166,6 +173,7 @@
 
                 <div id="resultCard" class="result-card hidden">
                     <h3>📋 Resultados de la Evaluación</h3>
+                    <div id="deviceInfoDisplay" class="device-info-display"></div>
                     <div class="results-grid" id="resultsContainer">
                         <!-- Los resultados se insertarán aquí dinámicamente -->
                     </div>
@@ -179,9 +187,13 @@
                 <button onclick="exportarCSV()" id="exportBtn" class="btn-secondary" disabled>
                     📊 Exportar Historial a CSV
                 </button>
+                <button onclick="importarCSV()" id="importBtn" class="btn-info">
+                    📂 Importar Datos desde CSV
+                </button>
                 <button onclick="limpiarHistorial()" id="clearBtn" class="btn-danger" disabled>
                     🗑️ Limpiar Historial
                 </button>
+                <input type="file" id="fileInput" accept=".csv" style="display: none;" onchange="procesarImportacionCSV(event)">
             </div>
 
             <div class="history-card">
@@ -191,6 +203,9 @@
                         <thead>
                             <tr>
                                 <th>Fecha/Hora</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Síntomas</th>
                                 <th>Batería</th>
                                 <th>Pin Carga</th>
                                 <th>Subplaca</th>
@@ -198,7 +213,6 @@
                                 <th>Circuito</th>
                                 <th>Pulso</th>
                                 <th>Parlantes</th>
-                                <th>Auricular</th>
                                 <th>Vibrador</th>
                                 <th>Micrófonos</th>
                                 <th>Consumo OFF</th>
@@ -206,7 +220,6 @@
                                 <th>Btn Enc</th>
                                 <th>Btn Vol+</th>
                                 <th>Btn Vol-</th>
-                                <th>Btn Asist</th>
                                 <th>Estado General</th>
                             </tr>
                         </thead>
