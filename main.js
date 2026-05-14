@@ -30,9 +30,9 @@ const especificaciones = {
     },
     circuitoCarga: { 
         tipo: 'voltaje', 
-        valor: 4.3, 
+        valor: 4.2, 
         unidad: 'V',
-        criterio: '≥ 4.3V = Bueno'
+        criterio: '≥ 4.2V = Bueno'
     },
     pulsoEncendido: { 
         tipo: 'voltaje', 
